@@ -2,8 +2,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* font-family: Arial, sans-serif; */
-    font-family: "Lato", sans-serif;
+}
+
+body {
+    font-family: "Jost", sans-serif;
+    font-size: 16px;
 }
 
 .top-bar {
@@ -17,11 +20,13 @@
 .header {
     display: flex;
     justify-content: space-between;
-    padding: 20px 60px;
     align-items: center;
+    padding: 20px 60px;
     position: sticky;
     top: 0;
     background: white;
+    z-index: 999;
+    flex-wrap: wrap;
 }
 
 .logo {
@@ -37,21 +42,31 @@
 
 .navi{
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 60px;
+    background: #f7f7f7;
+    font-size: 13px;
 }
 
 .navigations{
     display: flex;
     justify-content: left;
-    gap: 50px;
+    align-items: center;
+    gap: 30px;
     list-style: none;
-       
+    margin: 0;
+    padding: 0;
 }
 
 .navigationss{
     display: flex;
     justify-content: right;
-    gap: 50px;
+    align-items: center;
+    gap: 20px;
     list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 nav li {
@@ -62,16 +77,59 @@ a {
     Text-decoration: none;
     color: #111;
     font-weight: 700;
+    transition: color 0.3s;
+}
+
+.navi a {
+    font-weight: 400;
+    color: #666;
+    font-size: 12px;
+}
+
+.navi a:hover {
+    color: #111;
 }
 
 .icons-head {
     display: flex;
     gap: 30px;
+    cursor: pointer;
+}
 
+.header .navigation li {
+    position: relative;
+}
+
+.header .new-badge {
+    position: absolute;
+    top: -14px;
+    right: -24px;
+    background: #ff3d3d;
+    color: #fff;
+    font-size: 12px;
+    padding: 2px 8px;
+    border-radius: 999px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.shopping-cart-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: #ff3d3d;
+    color: #fff;
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 50%;
+    font-weight: 600;
+    min-width: 16px;
+    text-align: center;
+    line-height: 1;
 }
 
 a:hover {
-    color: red;
+    color: #E74C3C;
 }
 
 .hero {
@@ -79,47 +137,99 @@ a:hover {
     background: url("./image/h1_hero1.jpg") center/cover no-repeat;
     display: flex;
     align-items: center;
-    padding-left: 80px;
+    justify-content: flex-start;
+    padding: 0 13% 0 13%;
+    position: relative;
 }
 
 .hero-text {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
+    max-width: 540px;
+    text-align: center;
+}
+
+.hero-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 45px;
+    height: 80px;
+    border: none;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    color: #999;
+    cursor: pointer;
+    outline: none;
+}
+
+.hero-arrow-left {
+    left: 0;
+}
+
+.hero-arrow-right {
+    right: 0;
+}
+
+.hero-arrow:hover {
+    background: #ffffff;
+    color: #111;
 }
 
 .hero-text h4 {
-    color: red;
-    font-size: 20px;
+    color: #ff3b6e;
+    font-size: 26px;
+    font-weight: 400;
+    font-family: 'Clicker Script', cursive;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
 }
 
 .hero-text h1 {
-    font-size: 52px;
-    margin: 10px 0;
+    font-size: 60px;
+    margin: 20px 0 18px 0;
+    font-weight: 700;
+    color: #111;
 }
 
 .hero-para {
     text-align: center;
+    color: #696969;
+    font-size: 16px;
+    line-height: 1.8;
+    margin: 20px 0 32px 0;
 }
 
 .hero-text button {
-    width: 173px;
-    padding: 12px 25px;
-    background: black;
-    color: white;
+    width: 190px;
+    padding: 15px 30px;
+    background: #111111;
+    color: #ffffff;
     border: none;
     cursor: pointer;
-    /* margin-left: 38%; */
+    font-weight: 600;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.hero-text button:hover {
+    background: #333333;
+    color: #ffffff;
+    transform: translateY(-2px);
 }
 
 .categories {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     padding: 60px;
 }
 
 .cat-card {
-    flex: 1;
     height: 350px;
     background-size: cover;
     background-position: center;
@@ -128,31 +238,69 @@ a:hover {
     padding: 20px;
     color: white;
     font-size: 22px;
+    font-weight: 600;
+    position: relative;
+}
+
+.cat-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.cat-card h2 {
+    position: relative;
+    z-index: 2;
 }
 
 .trending {
-    padding: 60px;
+    padding: 80px 60px;
     text-align: center;
 }
 
 .products {
     display: flex;
+    flex-wrap: wrap;
     gap: 30px;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 .product {
-    width: 30%;
+    width: calc(25% - 22.5px);
+    text-align: center;
 }
 
 .product img {
     width: 100%;
+    height: auto;
+    display: block;
 }
 
 .product span {
     text-decoration: line-through;
-    color: gray;
-    margin-left: 8px;
+    color: #777777;
+    margin-left: 6px;
+    font-size: 14px;
+}
+
+.product h3,
+.product h4 {
+    font-size: 16px;
+    margin: 15px 0 10px 0;
+    color: #111;
+    font-weight: 600;
+}
+
+.product p {
+    color: #ff2020;
+    font-size: 14px;
+    margin: 8px 0 0 0;
+    font-weight: 500;
 }
 
 .trending-box {
@@ -160,6 +308,32 @@ a:hover {
     justify-content: space-between;
     align-items: center;
     padding: 30px;
+    margin-bottom: 30px;
+}
+
+.trending-box h2 {
+    font-size: 35px;
+    color: #111;
+    font-weight: 700;
+}
+
+.trending-box nav {
+    display: flex;
+    gap: 40px;
+}
+
+.trending-box nav a {
+    color: #666;
+    font-weight: 500;
+    transition: color 0.3s, border 0.3s;
+    padding-bottom: 8px;
+    border-bottom: 3px solid transparent;
+}
+
+.trending-box nav a:hover,
+.trending-box nav a.active {
+    color: #E74C3C;
+    border-bottom-color: #E74C3C;
 }
 
 .testimonial {
@@ -178,6 +352,15 @@ a:hover {
 
 .heading-testimonial {
     font-size: 40px;
+    color: #111;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.testimonial p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 40px;
 }
 
 .trending-head {
@@ -191,69 +374,195 @@ a:hover {
 
 .news {
     text-align: center;
+    font-size: 35px;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 40px;
 }
 
 .lat {
-    background: #f4ecd8;
-    padding: 20px;
+    background: #ffffff;
+    padding: 80px 0;
 }
 
 .latest {
-    padding: 60px;
+    padding: 0 15px;
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+.latest .products {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.latest .product {
+    text-align: left;
+}
+
+.latest .product img {
+    margin-bottom: 20px;
+}
+
+.latest .product > p:first-of-type {
+    color: #E74C3C;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.latest .product > p:nth-of-type(2) {
+    font-size: 18px;
+    color: #111;
+    margin-bottom: 12px;
+    font-weight: 600;
+    margin: 12px 0;
+}
+
+.latest .product > p:nth-of-type(3) {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.latest .product a {
+    color: #111;
+    text-decoration: underline;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.latest .product a:hover {
+    color: #E74C3C;
 }
 
 .icons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    padding: 100px 60px;
+    text-align: center;
+}
+
+.icons div {
     display: flex;
-    gap: 100px;
-    padding: 100px;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.icons img {
+    height: 60px;
+    margin-bottom: 20px;
 }
 
 .icons-text {
-    font-size: 20px;
-    font-weight: 500;
-    margin-bottom: 12px;
-    color: #2B2B2B;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #111;
+}
+
+.icons-text + p {
+    color: #666;
+    font-size: 14px;
 }
 
 .newsletter {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
-    /* gap: 30px; */
+    justify-content: space-between;
     background: #111;
     color: white;
-    text-align: center;
     padding: 60px;
-
+    gap: 40px;
 }
 
 .new {
-    background: #111;
-    color: white;
-    text-align: center;
-    padding: 60px;
+    flex: 1;
+    text-align: left;
+}
+
+.new h2 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.new p {
+    color: #ccc;
+    font-size: 14px;
+}
+
+.newsletter > div:nth-child(2) {
+    flex: 1;
+    display: flex;
+    gap: 10px;
+}
+
+.newsletter > div:nth-child(3) {
+    flex: 0 0 auto;
 }
 
 .newsletter input {
-    padding: 20px 30px;
-    width: 400px;
+    padding: 15px 20px;
+    flex: 1;
+    border: none;
+    background: white;
+    color: #111;
 }
 
 .newsletter button {
-    padding: 20px 30px;
-    background: red;
+    padding: 15px 40px;
+    background: #E74C3C;
     border: none;
     color: white;
-    margin-left: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.newsletter button:hover {
+    background: #D43F2D;
+    transform: translateY(-2px);
 }
 
 .foot {
-    display: flex;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 40px;
     background: #111;
     color: white;
-    padding: 80px;
+    padding: 80px 60px;
+}
+
+.foot div h3,
+.foot div h4 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #FFFFFF;
+}
+
+.foot div ul {
+    list-style: none;
+}
+
+.foot div li {
+    margin-bottom: 10px;
+}
+
+.foot div a {
+    color: #CCCCCC;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.foot div a:hover {
+    color: #E74C3C;
 }
 
 .end {
@@ -265,8 +574,265 @@ a:hover {
 
 .fafa-icons {
     display: flex;
-    /* justify-content: end; */
-    /* padding: 20px;   */
-    gap: 30px;
+    gap: 20px;
+}
 
+.fafa-icons a,
+.fafa-icons i {
+    color: white;
+    font-size: 20px;
+    transition: color 0.3s;
+    margin: 0 5px;
+}
+
+.fafa-icons a:hover,
+.fafa-icons i:hover {
+    color: #E74C3C;
+}
+
+/* Hamburger Menu Styles */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 6px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: #111;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(10px, 10px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Responsive Navigation */
+.nav-menu {
+    display: flex;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+    .header {
+        padding: 15px 20px;
+        justify-content: space-between;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 90px;
+        flex-direction: column;
+        background: white;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+        padding: 20px 0;
+        z-index: 998;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .navigation {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .navigation li {
+        padding: 10px 0;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    .navigation li:last-child {
+        border-bottom: none;
+    }
+
+    .navigation a {
+        font-size: 16px;
+        color: #111;
+        text-decoration: none;
+    }
+
+    .icons-head {
+        gap: 15px;
+    }
+
+    .icons-head i {
+        font-size: 20px !important;
+    }
+
+    .logo img {
+        height: 40px;
+        width: auto;
+    }
+
+    /* Hero Section Mobile */
+    .hero {
+        padding: 0 20px;
+        height: 60vh;
+    }
+
+    .hero-text h1 {
+        font-size: 32px;
+    }
+
+    .hero-text h4 {
+        font-size: 18px;
+    }
+
+    .hero-para {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .hero-text button {
+        width: 150px;
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+
+    .hero-arrow {
+        width: 35px;
+        height: 60px;
+        font-size: 18px;
+    }
+
+    /* Categories Mobile */
+    .categories {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 30px 20px;
+    }
+
+    .cat-card {
+        height: 250px;
+    }
+
+    /* Products Mobile */
+    .products {
+        gap: 15px;
+    }
+
+    .product {
+        width: calc(50% - 7.5px);
+    }
+
+    /* Icons Section Mobile */
+    .icons {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        padding: 50px 20px;
+    }
+
+    .icons img {
+        height: 50px;
+    }
+
+    /* Newsletter Mobile */
+    .newsletter {
+        flex-direction: column;
+        padding: 30px 20px;
+        gap: 20px;
+    }
+
+    .new {
+        text-align: center;
+    }
+
+    .new h2 {
+        font-size: 22px;
+    }
+
+    .newsletter > div:nth-child(2) {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .newsletter input {
+        width: 100%;
+    }
+
+    /* Footer Mobile */
+    .foot {
+        grid-template-columns: 1fr;
+        padding: 40px 20px;
+        gap: 30px;
+    }
+
+    .navi {
+        flex-direction: column;
+        padding: 15px 20px;
+        gap: 15px;
+    }
+
+    .navigations,
+    .navigationss {
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+    }
+
+    .trending {
+        padding: 40px 20px;
+    }
+
+    .trending-head {
+        font-size: 24px;
+    }
+
+    /* Latest News Mobile */
+    .latest .products {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+/* Tablet Responsive Styles */
+@media (max-width: 1024px) {
+    .product {
+        width: calc(33.333% - 20px);
+    }
+
+    .header {
+        padding: 15px 40px;
+    }
+
+    .navigation {
+        gap: 30px;
+    }
+
+    .icons {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero {
+        padding: 0 10% 0 10%;
+    }
+
+    .latest .products {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
